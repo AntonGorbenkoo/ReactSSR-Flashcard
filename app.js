@@ -10,6 +10,8 @@ const config = require('./config/config');
 
 config(app);
 
+
+
 app.listen(PORT, () => {
   try {
     console.log(`Сервер запущен на порту ${PORT}`);
