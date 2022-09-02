@@ -27,17 +27,19 @@ async function getAnswer(event) {
       }),
     });
     const { servAnsw } = await isOk.json();
+    if (document.querySelector('#nextQuest')) document.querySelector('.nextQuest').remove();
     const rightAnswerHTML = `<p>Это правильный ответ!</p>
-                             <form id="nextQuest" method="get" action="/question/:${themeNum}/:${((+questionNum) + 1)}">
+                             <form id="nextQuest" method="get" action="/question/${themeNum}/${((+questionNum) + 1)}">
                              <p><input type="submit" value="Следующий вопрос" /></p>
                              </form>`;
-    document.querySelector('.questionForm').insertAdjacentHTML(rightAnswerHTML, 'afterend');
+    document.querySelector('.questionForm').insertAdjacentHTML('afterEnd', rightAnswerHTML);
   } else {
+    if (document.querySelector('#nextQuest')) document.querySelector('.nextQuest').remove();
     const notrightAnswerHTML = `<p>Это неправильный ответ!</p>
-                             <form id="nextQuest" method="get" action="/question/:${themeNum}/:${((+questionNum) + 1)}">
+                             <form id="nextQuest" method="get" action="/question/${themeNum}/${((+questionNum) + 1)}">
                              <p><input type="submit" value="Следующий вопрос" /></p>
                              </form>`;
-    document.querySelector('.questionForm').insertAdjacentHTML(notrightAnswerHTML, 'afterend');
+    document.querySelector('.questionForm').insertAdjacentHTML('afterEnd', notrightAnswerHTML);
   }
 }
 
