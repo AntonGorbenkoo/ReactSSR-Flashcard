@@ -1,78 +1,33 @@
-'use strict';
-
-
-
 module.exports = {
-  async up (queryInterface, Sequelize) {
-  
-     await queryInterface.bulkInsert('Questions', [{
-       themeId: 1,
-       question: 'Q1',
-       answer: 'A1',
-       createdAt: new Date(),
-       updatedAt: new Date(),
-      },
-      {
-        themeId: 1,
-        question: 'Q2',
-        answer: 'A2',
-        createdAt: new Date(),
-        updatedAt: new Date(),
-       },
-       {
-        themeId: 1,
-        question: 'Q3',
-        answer: 'A3',
-        createdAt: new Date(),
-        updatedAt: new Date(),
-       },
-       {
-        themeId: 2,
-        question: 'Q4',
-        answer: 'A4',
-        createdAt: new Date(),
-        updatedAt: new Date(),
-       },
-       {
-         themeId: 2,
-         question: 'Q5',
-         answer: 'A5',
-         createdAt: new Date(),
-         updatedAt: new Date(),
-        },
-        {
-         themeId: 2,
-         question: 'Q6',
-         answer: 'A6',
-         createdAt: new Date(),
-         updatedAt: new Date(),
-        },
-        {
-          themeId: 3,
-          question: 'Q7',
-          answer: 'A7',
-          createdAt: new Date(),
-          updatedAt: new Date(),
-         },
-         {
-           themeId: 3,
-           question: 'Q8',
-           answer: 'A8',
-           createdAt: new Date(),
-           updatedAt: new Date(),
-          },
-          {
-           themeId: 3,
-           question: 'Q9',
-           answer: 'A9',
-           createdAt: new Date(),
-           updatedAt: new Date(),
-          },
-      ], {});
-    
+  async up(queryInterface, Sequelize) {
+    const questionsArr = [
+      { themeId: 1, question: 'Что, в представлении японских работодателей, не является поводом для порицания сотрудников на рабочем месте?', answer: 'сон' },
+      { themeId: 1, question: 'Какой дефект внешности считается в Японии признаком красоты?', answer: 'кривозубость' },
+      { themeId: 1, question: 'Кто из фантастических гигантских монстров в 2015 г. официально удостоился гражданства Японии?', answer: 'Годзилла' },
+      { themeId: 1, question: 'Какой оригинальный выход придумали японские фермеры, чтобы облегчить транспортировку арбузов?', answer: 'кубическая форма' },
+      { themeId: 1, question: 'Что означало, используемое японскими автомобилистами до 1997 года, изображение кленового листа на машине?', answer: 'пожилой водитель' },
+      { themeId: 2, question: 'Американцы считают, что в жизни нельзя избежать двух вещей: смерти и…?', answer: 'налогов' },
+      { themeId: 2, question: 'В старых барах на Дальнем Западе до сих пор висят плакаты, которые оканчиваются словами «…он делает все, что может». Что написано вначале?', answer: 'не стреляйте в пианиста' },
+      { themeId: 2, question: 'В 1960-е гг. тысячи американцев съезжались в Лас-Вегас полюбоваться зрелищем, на которое сегодня не стали бы смотреть ни за какие деньги. Что это за зрелище?', answer: 'ядерные испытания' },
+      { themeId: 2, question: 'В США много странных законов. Что, согласно одному из них, должен иметь человек, решивший поставить мышеловку?', answer: 'лицензию на охоту' },
+      { themeId: 2, question: 'Клиент банка «Кэмикл» может в течение 6—10 минут получить в качестве компенсации 5 долларов. За что?', answer: 'за стояние в очереди' },
+      { themeId: 3, question: 'По какому поводу китайцы красят куриные яйца в красный цвет?', answer: 'при рождении мальчика' },
+      { themeId: 3, question: 'Что, согласно мифологии, изобрел Цан Цзе, изучая следы зверей и птиц?', answer: 'иероглифы' },
+      { themeId: 3, question: 'В современном Китае юноши и девушки, желающие вступить в брак, нередко пишут краткие данные о себе и требования к партнеру. Эти брачные объявления свободно перемещаются по стране, достигая иногда своей цели и становясь в этом случае семейной реликвией. На чем же они пишут свои объявления?', answer: 'на деньгах' },
+      { themeId: 3, question: 'Их длина служила признаком высокого происхождения в Китае. Что это?', answer: 'ногти' },
+      { themeId: 3, question: 'Самый популярный национальный вид спорта в Китае, помимо боевых искусств?', answer: 'пинг-понг' },
+    ];
+
+    const questions = questionsArr.map((quest) => ({
+      ...quest,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    }));
+
+    await queryInterface.bulkInsert('Questions', questions, {});
   },
 
-  async down (queryInterface, Sequelize) {
-     await queryInterface.bulkDelete('Questions', null, {});
-  }
+  async down(queryInterface, Sequelize) {
+    await queryInterface.bulkDelete('Questions', null, {});
+  },
 };
