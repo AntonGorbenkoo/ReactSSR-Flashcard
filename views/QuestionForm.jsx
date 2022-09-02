@@ -10,7 +10,7 @@ module.exports = function QuestionForm({ formId, questText }) {
           <p>
             <label htmlFor="questText">
               {questText}
-              <input id="inputField" name="inputAnswer" type="text" placeholder="" />
+              <input id="inputField" name="inputAnswer" type="text" placeholder="" autoComplete="off" />
             </label>
           </p>
           <p><input id="buttonField" type="submit" value="Введите ответ" /></p>

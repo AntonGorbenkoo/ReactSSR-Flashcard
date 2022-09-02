@@ -9,7 +9,7 @@ module.exports = function ScoresPage({ counter }) {
       <h1>
         Количество правильных ответов:
         {' '}
-        {counter}
+        {counter || 0}
       </h1>
       <a href="/themes">
         <button className="btn btn-outline-primary">
