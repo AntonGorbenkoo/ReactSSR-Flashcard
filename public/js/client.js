@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 async function getAnswer(event) {
   event.preventDefault();
   const num = event.target.id;
