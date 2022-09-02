@@ -10,6 +10,9 @@ module.exports = {
       title: {
         type: Sequelize.TEXT,
       },
+      cover: {
+        type: Sequelize.TEXT,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
