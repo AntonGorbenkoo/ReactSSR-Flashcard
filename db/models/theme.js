@@ -18,6 +18,9 @@ module.exports = (sequelize, DataTypes) => {
     title: {
       type: DataTypes.TEXT,
     },
+    cover: {
+      type: DataTypes.TEXT,
+    },
     createdAt: {
       allowNull: false,
       type: DataTypes.DATE,

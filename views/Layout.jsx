@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 const React = require('react');
 
-function Layout({ children, user }) {
+function Layout({ children }) {
   return (
     <html lang="en">
       <head>
