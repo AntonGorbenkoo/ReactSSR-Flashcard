@@ -5,7 +5,7 @@ const { Theme } = require('../db/models');
 themeRouter.get('/', async (req, res) => {
     const themes = await Theme.findAll({raw:true});
     res.renderComponent(ThemesList, {themes});
-    console.log(themes.title);
+    console.log(themes.cover);
   });
 
 //   themeRouter.post('/themes', async (req, res) => {
