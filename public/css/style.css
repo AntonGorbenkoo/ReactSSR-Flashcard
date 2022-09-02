@@ -1,0 +1,45 @@
+.gallery{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.themeDiv{
+   width: 400px;
+   height: 800px;
+   text-align: center;
+}
+
+.imgTheme{
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+.mainDiv{
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+  margin-top: 200px;
+}
+
+.questionForm{
+  text-align: center;
+  max-width: 800px;
+  height: 800px;
+  margin: auto;
+  margin-top: 200px;
+}
+
+.themeDiv{
+  margin-top: 50px;
+}
+
+h1{
+  color: blue
+}
+
+.button{
+  margin-top: 100px;
+
+}
