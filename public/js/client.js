@@ -28,6 +28,8 @@ async function getAnswer(event) {
     });
     const { servAnsw } = await isOk.json();
     if (document.querySelector('#nextQuest')) document.querySelector('.nextQuest').remove();
+    // document.getElementById('inputField').disabled = true;
+    document.getElementById('buttonField').disabled = true;
     const rightAnswerHTML = `<p>Это правильный ответ!</p>
                              <form id="nextQuest" method="get" action="/question/${themeNum}/${((+questionNum) + 1)}">
                              <p><input type="submit" value="Следующий вопрос" /></p>
@@ -35,6 +37,7 @@ async function getAnswer(event) {
     document.querySelector('.questionForm').insertAdjacentHTML('afterEnd', rightAnswerHTML);
   } else {
     if (document.querySelector('#nextQuest')) document.querySelector('.nextQuest').remove();
+    document.getElementById('buttonField').disabled = true;
     const notrightAnswerHTML = `<p>Это неправильный ответ!</p>
                              <form id="nextQuest" method="get" action="/question/${themeNum}/${((+questionNum) + 1)}">
                              <p><input type="submit" value="Следующий вопрос" /></p>
