@@ -6,9 +6,13 @@ const app = express();
 const PORT = process.env.PORT ?? 3000;
 const testConnection = require('./testconnection');
 
+const themeRouter = require('./routers/themeRouter')
+
 const config = require('./config/config');
 
 config(app);
+
+app.use('/themes', themeRouter);
 
 app.listen(PORT, () => {
   try {
