@@ -10,11 +10,14 @@ module.exports = function QuestionForm({ formId, questText }) {
           <p>
             <label htmlFor="questText">
               {questText}
-              <input id="inputField" name="inputAnswer" type="text" placeholder="" autoComplete="off" />
+
+              <input autoComplete="off" id="inputField" name="inputAnswer" type="text" placeholder="" />
+
             </label>
           </p>
-          <p><input id="buttonField" type="submit" value="Введите ответ" /></p>
+          <p><input id="buttonField" className="btn btn-outline-primary" type="submit" value="Введите ответ" /></p>
         </form>
+        <div className="qDiv"></div>
       </div>
     </Layout>
   );

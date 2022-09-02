@@ -34,7 +34,9 @@ async function getAnswer(event) {
                              <form id="nextQuest" method="get" action="/question/${themeNum}/${((+questionNum) + 1)}">
                              <p><input type="submit" value="Следующий вопрос" /></p>
                              </form>`;
-    document.querySelector('.questionForm').insertAdjacentHTML('beforeEnd', rightAnswerHTML);
+
+    document.querySelector('.qDiv').innerHTML = rightAnswerHTML;
+
   } else {
     if (document.querySelector('#nextQuest')) document.querySelector('.nextQuest').remove();
     document.getElementById('buttonField').disabled = true;
@@ -44,7 +46,9 @@ async function getAnswer(event) {
                              <form id="nextQuest" method="get" action="/question/${themeNum}/${((+questionNum) + 1)}">
                              <p><input type="submit" value="Следующий вопрос" /></p>
                              </form>`;
-    document.querySelector('.questionForm').insertAdjacentHTML('beforeEnd', notrightAnswerHTML);
+
+    document.querySelector('.qDiv').innerHTML = notrightAnswerHTML;
+
   }
 }
 
