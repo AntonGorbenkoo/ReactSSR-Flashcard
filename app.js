@@ -12,10 +12,15 @@ const app = express();
 const PORT = process.env.PORT ?? 3000;
 const testConnection = require('./testconnection');
 
+const themeRouter = require('./routers/themeRouter')
+
 const config = require('./config/config');
 const QuestionForm = require('./views/QuestionForm');
 
 config(app);
+
+
+app.use('/themes', themeRouter);
 
 app.post('/counter', (req, res) => {
   const { inc } = req.body;
@@ -44,6 +49,7 @@ app.get('/question/:theme/:question', async (req, res) => {
   res.write('<!DOCTYPE html>');
   res.end(html);
 });
+
 
 app.listen(PORT, () => {
   try {
