@@ -20,6 +20,7 @@ const config = require('./config/config');
 const mainRouter = require('./routers/mainRouter');
 
 const QuestionForm = require('./views/QuestionForm');
+const ScoresPage = require('./views/ScoresPage');
 
 config(app);
 
@@ -29,8 +30,8 @@ app.use('/themes', themeRouter);
 
 app.post('/counter', (req, res) => {
   const { inc } = req.body;
-  if (inc) req.app.locals.counter = (req.app.locals.counter ?? 0) + 1; // or res ???
-  console.log (req.app.locals.counter);
+  if (inc) res.app.locals.counter = (res.app.locals.counter ?? 0) + 1; // or res ???
+  // console.log (req.app.locals.counter);
   res.json({ servAnsw: true });
 });
 
@@ -48,7 +49,7 @@ app.post('/question/check', async (req, res) => {
 app.get('/question/:theme/:question', async (req, res) => {
   const { theme, question } = req.params;
   const themeQuestions = await Question.findAll({ where: { themeId: theme }, raw: true });
-  if (question > themeQuestions.length) res.redirect('/themes');
+  if (question > themeQuestions.length) res.redirect('/scores');
   else {
     const rightOne = themeQuestions[question - 1].question;
     const idform = `${theme}_${question}`;
@@ -57,6 +58,14 @@ app.get('/question/:theme/:question', async (req, res) => {
     res.write('<!DOCTYPE html>');
     res.end(html);
   }
+});
+
+app.get('/scores', (req, res) => {
+  const { counter } = res.app.locals;
+  const main = React.createElement(ScoresPage, { counter });
+  const html = ReactDOMServer.renderToStaticMarkup(main);
+  res.write('<!DOCTYPE html>');
+  res.end(html);
 });
 
 app.listen(PORT, () => {
