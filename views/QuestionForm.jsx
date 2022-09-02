@@ -8,10 +8,10 @@ module.exports = function QuestionForm({ formId, questText }) {
         <p>
           <label htmlFor="questText">
             {questText}
-            <input id="sides" name="sides" type="number" placeholder="" />
+            <input id="sides" name="inputAnswer" type="number" placeholder="" />
           </label>
         </p>
-        <p><input type="submit" value="Roll the Die" /></p>
+        <p><input type="submit" value="Введите ответ" /></p>
       </form>
     </Layout>
   );
