@@ -13,7 +13,9 @@ const mainRouter = require('./routers/mainRouter');
 
 config(app);
 
+
 app.use('/', mainRouter)
+
 
 app.listen(PORT, () => {
   try {
