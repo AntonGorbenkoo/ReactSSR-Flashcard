@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 const express = require('express');
 const ReactDOMServer = require('react-dom/server');
 const React = require('react');
@@ -25,7 +25,8 @@ mainRouter.get('/', (req, res) => {
   })
 
   module.exports = mainRouter;
-=======
+
+
 app.get('/', (req, res) => {
   const home = React.createElement(Home);
   const html = ReactDOMServer.renderToStaticMarkup(main);
@@ -33,4 +34,4 @@ app.get('/', (req, res) => {
   res.write('<!DOCTYPE html>');
   res.end(html);
 });
->>>>>>> 1baebb99554ffec87f6a6d9a5a4270d1e7c124ac
+

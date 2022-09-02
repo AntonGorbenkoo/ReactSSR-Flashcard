@@ -7,8 +7,6 @@ const { sequelize } = require('./db/models');
 const ReactDOMServer = require('react-dom/server');
 const React = require('react');
 
-// const { sequelize } = require('./db/models');
-
 const { Question } = require('./db/models');
 
 
@@ -17,7 +15,7 @@ const app = express();
 const PORT = process.env.PORT ?? 3000;
 const testConnection = require('./testconnection');
 
-const themeRouter = require('./routers/themeRouter')
+const themeRouter = require('./routers/themeRouter');
 
 const config = require('./config/config');
 
@@ -31,6 +29,7 @@ config(app);
 
 
 app.use('/', mainRouter)
+
 
 app.use('/themes', themeRouter);
 
