@@ -5,7 +5,7 @@ const Layout = require('./Layout');
 module.exports = function QuestionForm({ formId, questText }) {
   return (
     <Layout>
-      <form className="questionForm" id={formId} method="get" action="/">
+      <form className="questionForm shadow-lg p-3 mb-5 bg-body rounded" id={formId} method="get" action="/">
         <p>
           <label htmlFor="questText">
             {questText}
