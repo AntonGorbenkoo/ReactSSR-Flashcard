@@ -15,6 +15,7 @@ mainRouter.get('/', (req, res) => {
 
 mainRouter.post('/', async (req, res) => {
   const newPlayer = req.body.player_name;
+  res.app.locals.name = newPlayer;
   try {
     await User.create({ login: newPlayer, score: 0 });
     res.redirect('/themes');

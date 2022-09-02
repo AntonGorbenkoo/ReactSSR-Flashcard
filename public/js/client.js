@@ -34,15 +34,21 @@ async function getAnswer(event) {
                              <form id="nextQuest" method="get" action="/question/${themeNum}/${((+questionNum) + 1)}">
                              <p><input type="submit" value="Следующий вопрос" /></p>
                              </form>`;
+
     document.querySelector('.qDiv').innerHTML = rightAnswerHTML;
+
   } else {
     if (document.querySelector('#nextQuest')) document.querySelector('.nextQuest').remove();
     document.getElementById('buttonField').disabled = true;
     const notrightAnswerHTML = `<p>Это неправильный ответ!</p>
+                                <p>Правильный ответ:</p>
+                                <p>${answ}</p>
                              <form id="nextQuest" method="get" action="/question/${themeNum}/${((+questionNum) + 1)}">
                              <p><input type="submit" value="Следующий вопрос" /></p>
                              </form>`;
+
     document.querySelector('.qDiv').innerHTML = notrightAnswerHTML;
+
   }
 }
 

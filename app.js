@@ -7,6 +7,8 @@ const React = require('react');
 // const { sequelize } = require('./db/models');
 
 const { Question } = require('./db/models');
+const { User } = require('./db/models');
+
 
 const app = express();
 
@@ -60,8 +62,11 @@ app.get('/question/:theme/:question', async (req, res) => {
   }
 });
 
-app.get('/scores', (req, res) => {
+app.get('/scores', async (req, res) => {
   const { counter } = res.app.locals;
+  const user = await User.findOne({ where: { login: res.app.locals.name }, raw: true });
+  user.score = counter;
+  user.save();
   const main = React.createElement(ScoresPage, { counter });
   const html = ReactDOMServer.renderToStaticMarkup(main);
   res.write('<!DOCTYPE html>');
