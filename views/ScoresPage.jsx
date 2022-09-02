@@ -6,17 +6,21 @@ const Layout = require('./Layout');
 module.exports = function ScoresPage({ counter }) {
   return (
     <Layout>
-      <h1>
-        Количество правильных ответов:
+      <div className="mainDiv shadow-lg p-3 mb-5 bg-body rounded">
+        <h1>
+          Количество правильных ответов:
+
+        </h1>
         {' '}
-        {counter || 0}
-      </h1>
-      <a href="/themes">
-        <button className="btn btn-outline-primary">
-          Продолжить игру
-          {' '}
-        </button>
-      </a>
+        <h1 className="red">{counter || 0}</h1>
+
+        <a href="/themes">
+          <button className="btn btn-outline-primary">
+            Продолжить игру
+            {' '}
+          </button>
+        </a>
+      </div>
     </Layout>
   );
 };
