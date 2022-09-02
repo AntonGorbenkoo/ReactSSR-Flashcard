@@ -2,13 +2,11 @@ require('@babel/register');
 
 const express = require('express');
 
-const { sequelize } = require('./db/models');
-
 const ReactDOMServer = require('react-dom/server');
 const React = require('react');
+// const { sequelize } = require('./db/models');
 
 const { Question } = require('./db/models');
-
 
 const app = express();
 
@@ -23,13 +21,9 @@ const mainRouter = require('./routers/mainRouter');
 
 const QuestionForm = require('./views/QuestionForm');
 
-
 config(app);
 
-
-
-app.use('/', mainRouter)
-
+app.use('/', mainRouter);
 
 app.use('/themes', themeRouter);
 
@@ -60,8 +54,6 @@ app.get('/question/:theme/:question', async (req, res) => {
   res.write('<!DOCTYPE html>');
   res.end(html);
 });
-
-
 
 app.listen(PORT, () => {
   try {
