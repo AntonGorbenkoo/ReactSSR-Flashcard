@@ -14,8 +14,6 @@ function Theme({ theme }) {
         <a href={`/question/${theme.id}/1`}>
           <button className="btn btn-outline-primary">
             Выбрать тему
-            {' '}
-            {theme.id}
           </button>
         </a>
       </div>

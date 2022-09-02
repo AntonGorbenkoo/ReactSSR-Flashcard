@@ -18,7 +18,7 @@ module.exports = {
        },
        {
         title: 'Китай',
-        cover: 'https://storge.pic2.me/cm/1920x1080/486/5f9579fec96252.27734403.jpg',
+        cover: 'https://img.desktopwallpapers.ru/world/pics/wide/1920x1080/7ab7089ae05eadd962cc5231042dc39a.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
        }
